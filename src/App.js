@@ -1,8 +1,14 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Header from "components/header";
+import { Provider } from 'react-redux';
+import { Route, HashRouter, Switch } from 'react-router-dom';
+
+
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { getStore } from './shared/redux/store';
+
+import Login from 'components/login'
+import GuardedRoute from 'components/hocs/'
+import Layout from 'components/header'
 
 const theme = createMuiTheme({
   palette: {
@@ -14,11 +20,16 @@ const theme = createMuiTheme({
 class App extends Component {
   render() {
     return (
-      <div style={{ width: "100%", height: "100vh" }}>
+      <Provider store={getStore()} >
         <MuiThemeProvider theme={theme}>
-          <Header />
+          <HashRouter>
+            <Switch>
+              <Route path="/auth/login" component={Login} />
+              <GuardedRoute path="/" component={Layout} />
+            </Switch>
+          </HashRouter>
         </MuiThemeProvider>
-      </div>
+      </Provider>
     );
   }
 }
