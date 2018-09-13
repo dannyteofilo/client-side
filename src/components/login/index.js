@@ -77,7 +77,6 @@ class Login extends Component {
                             <FormControl className={classes.margin}>
                                 <InputLabel htmlFor="input-with-icon-adornment">Username</InputLabel>
                                 <Input
-                                    id="input-with-icon-adornment"
                                     required
                                     name="username"
                                     onChange={this.handleChange}
@@ -91,7 +90,6 @@ class Login extends Component {
                             <FormControl className={classes.margin}>
                                 <InputLabel htmlFor="input-with-icon-adornment">Password</InputLabel>
                                 <Input
-                                    id="input-with-icon-adornment"
                                     type="password"
                                     required
                                     name="password"

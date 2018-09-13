@@ -1,5 +1,5 @@
 import { getStore } from '../shared/redux/store';
-// import * as actions from '../components/login/redux/actions'
+import * as actions from 'components/login/redux/actions'
 
 class Auth {
 
@@ -27,6 +27,13 @@ class Auth {
     setData(data) {
         // this.store.dispatch(actions.set(data));
         this.login = {data:data};
+    }
+
+    logout() {
+        this.login.data = null;
+        this._isAuthenticated = false;
+        localStorage.clear()
+        return this.store.dispatch(actions.logout());
     }
 
 }
