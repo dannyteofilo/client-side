@@ -104,12 +104,12 @@ class DetailSpecies extends React.Component {
                                     Shape: {data.shape.name}
                                 </Typography>
                                 <Typography variant="subheading" color="inherit" className={classes.flex}>
-                                Generation: {data.generation.name}
+                                    Generation: {data.generation.name}
                                 </Typography>
                             </div>
                         }
                     </DialogContent>
-                    <Divider/>
+                    <Divider />
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">
                             OK
