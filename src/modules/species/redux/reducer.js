@@ -1,58 +1,8 @@
-import * as actions from "shared/redux/constants";
+import list from './../list/redux/reducer';
+import details from '../details/redux/reducer';
+import { combineReducers } from 'redux';
 
-const initialState = {
-  requesting: false,
-  error: null,
-  data: null
-};
-
-const reducer = (state = initialState, action) => {
-  let newState = null;
-
-  switch (action.type) {
-    case actions.SPECIES_REQUEST_STARTS:
-      newState = {
-        ...state,
-        requesting: true,
-        error: false
-      };
-      break;
-
-    case actions.SPECIES_REQUEST_SUCCESS:
-      newState = {
-        ...state,
-        data: action.payload
-      };
-      break;
-
-    case actions.SPECIES_REQUEST_FAILED:
-      newState = {
-        ...state,
-        ...action.payload
-      };
-      break;
-
-    case actions.SPECIES_REQUEST_ENDS:
-      newState = {
-        ...state,
-        requesting: false
-      };
-      break;
-
-    case actions.SPECIES_RESET_STATE:
-      newState = {
-        ...state,
-        requesting: false,
-        error: null
-      };
-      break;
-
-    default:
-      newState = state;
-      break;
-  }
-
-  return newState;
-};
-
-export default reducer;
+export default combineReducers({
+    list,
+    details,
+})

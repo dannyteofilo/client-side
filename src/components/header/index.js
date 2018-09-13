@@ -13,7 +13,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import SideBar from "../side-bar";
-import Species from "modules/species";
+import Species from "modules/species/list";
 import Dashboard from "modules/dashboard";
 import styles from "./styles";
 import Auth from 'support/Auth';

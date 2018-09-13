@@ -11,6 +11,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import LockIcon from "@material-ui/icons/Lock";
 import Button from "@material-ui/core/Button";
 
+import Alert from 'components/dialog'
+
 import * as actions from "./redux/actions";
 import Auth from "support/Auth";
 
@@ -42,6 +44,10 @@ class Login extends Component {
     const { username, password } = this.state;
     if (username === "admin" && password === "admin") {
       this.props.dispatch(actions.attempt(true));
+    }else{
+      const title='Error!'
+      const message='Credentials Incorrect'
+      this.refs.alert.handleClickOpen(title,message)
     }
   }
 
@@ -112,6 +118,7 @@ class Login extends Component {
               Primary
             </Button>
           </form>
+          <Alert ref="alert"/>
         </Paper>
       </div>
     );

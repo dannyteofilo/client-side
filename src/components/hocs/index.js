@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import Auth from 'support/Auth'
 
 const GuardedRoute = ({ component: Component, ...rest }) => {
