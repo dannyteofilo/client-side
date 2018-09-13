@@ -13,7 +13,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import SideBar from "../side-bar";
-import Home from "modules/home";
+import Species from "modules/species";
 import Dashboard from "modules/dashboard";
 import styles from "./styles";
 import Auth from 'support/Auth';
@@ -89,9 +89,9 @@ class MiniDrawer extends React.Component {
           <main className={classes.content}>
             <div className={classes.toolbar} />
             <Switch>
-              <Route path="/home" name="Home" component={Home} />
+              <Route path="/species" name="Species" component={Species} />
               <Route path="/dashboard" name="Dashboard" component={Dashboard} />
-              <Redirect from="/" to="/home" />
+              <Redirect from="/" to="/species" />
             </Switch>
           </main>
         </div>

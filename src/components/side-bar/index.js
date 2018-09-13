@@ -22,9 +22,9 @@ class SimpleList extends Component {
           <Link to="/home" className={classes.listItemLink}>
             <ListItem button>
               <ListItemIcon>
-                <InboxIcon />
+              <i className="fas fa-pastafarianism"></i>
               </ListItemIcon>
-              <ListItemText primary="Inbox" />
+              <ListItemText primary="Pokemon Species" />
             </ListItem>
           </Link>
           <Link to="/dashboard" className={classes.listItemLink}>

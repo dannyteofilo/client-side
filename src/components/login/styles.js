@@ -19,9 +19,16 @@ const styles = theme => ({
         // backgroundImage: URL('../../fondo.jpg')
     },
     box_login:{
-        backgroundColor:'#90CAF9',
-        width:'250px',
-        height:'300px'
+        display: 'flex',
+        justifyContent:'center',
+        alignItems: 'center',
+        flexDirection:'column'
+    },
+    margin_form:{
+        marginTop:'20px'
+    },
+    margin_form_btn:{
+        marginTop:'20px'
     }
 })
 export default styles;
