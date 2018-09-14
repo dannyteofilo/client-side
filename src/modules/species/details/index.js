@@ -2,20 +2,20 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import { withStyles } from '@material-ui/core/styles';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 
 import *as actions from './redux/actions';
+import image from "../../../detail.jpg";
+
 
 import { connect } from 'react-redux';
-import { Divider } from '../../../../node_modules/@material-ui/core';
 
 
 const styles = {
@@ -25,12 +25,12 @@ const styles = {
     flex: {
         flex: 1,
     },
-    content_detail: {
-        display: 'flex',
-        width: '500px',
-        height: '300px',
-        margin: '30px',
-    }
+    card: {
+        maxWidth: 400,
+    },
+    media: {
+        height: 180,
+    },
 };
 
 function Transition(props) {
@@ -75,49 +75,48 @@ class DetailSpecies extends React.Component {
                     aria-labelledby="alert-dialog-slide-title"
                     aria-describedby="alert-dialog-slide-description"
                 >
-                    <AppBar className={classes.appBar}>
-                        <Toolbar>
-                            <IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
-                                <CloseIcon />
-                            </IconButton>
-                            <Typography variant="title" color="inherit" className={classes.flex}>
-                                Details
-                            </Typography>
+                    <Card className={classes.card}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media}
+                                image={image}
+                                title="Contemplative Reptile"
+                            />
+                            <CardContent>
+                                {
+                                    data !== null &&
+                                    <div>
+                                        <Typography variant="subheading" color="inherit" className={classes.flex}>
+                                            Habitat: {data.habitat.name}
+                                        </Typography>
+                                        <Typography variant="subheading" color="inherit" className={classes.flex}>
+                                            Color: {data.color.name}
+                                        </Typography>
+                                        <Typography variant="subheading" color="inherit" className={classes.flex}>
+                                            Shape: {data.shape.name}
+                                        </Typography>
+                                        <Typography variant="subheading" color="inherit" className={classes.flex}>
+                                            Generation: {data.generation.name}
+                                        </Typography>
+                                    </div>
+                                }
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            {
+                                !requesting &&
+                                < Button size="small" onClick={this.handleClose} color="secondary">
+                                    Close
+                                </Button>
+                            }
                             {
                                 requesting &&
                                 <CircularProgress className={classes.progress} color="secondary" />
-
                             }
-                        </Toolbar>
-                    </AppBar>
-                    <DialogContent className={classes.content_detail}>
-                        {
-                            data &&
-                            <div>
-                                <Typography variant="subheading" color="inherit" className={classes.flex}>
-                                    Habitat: {data.habitat.name}
-                                </Typography>
-                                <Typography variant="subheading" color="inherit" className={classes.flex}>
-                                    Color: {data.color.name}
-                                </Typography>
-                                <Typography variant="subheading" color="inherit" className={classes.flex}>
-                                    Shape: {data.shape.name}
-                                </Typography>
-                                <Typography variant="subheading" color="inherit" className={classes.flex}>
-                                    Generation: {data.generation.name}
-                                </Typography>
-                            </div>
-                        }
-                    </DialogContent>
-                    <Divider />
-                    <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
-                            OK
-                        </Button>
-                    </DialogActions>
-
+                        </CardActions>
+                    </Card>
                 </Dialog>
-            </div>
+            </div >
         );
     }
 }
@@ -126,7 +125,7 @@ const mapStateToProps = store => {
     console.log(store)
     const { details } = store.species;
     return {
-        data: details.data ? details.data : [],
+        data: details.data ? details.data : null,
         requesting: details.requesting
     }
 }
