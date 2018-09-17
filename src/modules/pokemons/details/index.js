@@ -79,7 +79,7 @@ class PokemonDetails extends React.Component {
                         <CardActionArea>
                             <CardMedia
                                 className={classes.media}
-                                image={data.sprites ? data.sprites.back_default :''}
+                                image={data!==null ? data.sprites.back_default :''}
                                 title="Contemplative Reptile"
                             />
                             <CardContent>
