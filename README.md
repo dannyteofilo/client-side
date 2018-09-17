@@ -3,6 +3,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+## Resumen
+
+La aplicación cuenta con un sistema que simula el logueo de un susario, la comprobación de si un usuario está logueado o no es controlada por un reducer que cambia de estado.
+
+Se realizó una validación de si el usuario está logueado o no, para proteger las rutas, es decir, si el usuario se ha identificado con éxito, le es permitido el acceso al sistema, de otro modo es redirigido al login si este conoce las rutas e intenta acceder sin credenciales.
+
+Dentro de la aplicación se realizaron dos secciones con tablas que listan un conjunto de datos traidos desde dos rutas diferentes. Las peticiones que se realizan en cada una de las tablas con un icono que despliega un modal con información más detallada, se controlan mediante peticiones asíncronas, utilizando un patron de sagas; esta libreria npm se encarga de ejecutar cada acción llamando al reducer que le es indicado en el orden que se le es especificado, controlando los posibles errores.
+
+Dentro de cada componente en el caso de la tabla y el de la vista de detalle, están conectados a la Store de redux, cada que las tablas son llamadas o el detail es llamado, se dispara una acción mediante el método Dispach, esa acción es la que descencadena la serie de acciones y reducers que controlan el estado de cada componente que se encuentre conectado a la Store.
+
+Para estar escuchando cada que las acciones son accionadas, se implementó una función que se encarga de estar escuchando las acciones que le sean pasadas como parámetro, es decir, se le da un nombre a dicha acción que cauando sea disparada va ejecutar toda la lista de acciones que fueron declaradas en la saga.
+
+
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
