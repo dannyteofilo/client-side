@@ -1,5 +1,4 @@
 import globalStyles from "shared/styles/global";
-import green from "@material-ui/core/colors/green";
 
 const drawerWidth = 240;
 

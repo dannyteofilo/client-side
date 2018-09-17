@@ -5,11 +5,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/Inbox";
-import DraftsIcon from "@material-ui/icons/Drafts";
 import LogoutIcon from "@material-ui/icons/PowerSettingsNew";
 import { Link } from "react-router-dom";
-import Auth from "support/Auth";
 
 import styles from "./styles";
 
@@ -27,12 +24,12 @@ class SimpleList extends Component {
               <ListItemText primary="Pokemon Species" />
             </ListItem>
           </Link>
-          <Link to="/dashboard" className={classes.listItemLink}>
+          <Link to="/pokemons" className={classes.listItemLink}>
             <ListItem button>
               <ListItemIcon>
-                <DraftsIcon />
+              <i className="fas fa-bug"></i>
               </ListItemIcon>
-              <ListItemText primary="Drafts" />
+              <ListItemText primary="Pokemon" />
             </ListItem>
           </Link>
           <ListItem button onClick={() => this.props.logout()}>

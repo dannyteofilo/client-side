@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Home from 'modules/home'
-import Dashboard from 'modules/dashboard'
+import Pokemons from 'modules/pokemons'
 
 class Layout extends Component {
     render() {
@@ -9,7 +9,7 @@ class Layout extends Component {
             <div>
                 <Switch>
                     <Route path="/home" name="Home" component={Home} />
-                    <Route path="/dashboard" name="Dashboard" component={Dashboard} />
+                    <Route path="/pokemons" name="Pokemons" component={Pokemons} />
                     <Redirect from="/" to="/home" />
                 </Switch>
             </div>

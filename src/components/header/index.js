@@ -14,7 +14,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import SideBar from "../side-bar";
 import Species from "modules/species/list";
-import Dashboard from "modules/dashboard";
+import Pokemons from "modules/pokemons/list";
 import styles from "./styles";
 import Auth from 'support/Auth';
 
@@ -90,7 +90,7 @@ class MiniDrawer extends React.Component {
             <div className={classes.toolbar} />
             <Switch>
               <Route path="/species" name="Species" component={Species} />
-              <Route path="/dashboard" name="Dashboard" component={Dashboard} />
+              <Route path="/pokemons" name="pokemons" component={Pokemons} />
               <Redirect from="/" to="/species" />
             </Switch>
           </main>

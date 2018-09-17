@@ -115,7 +115,7 @@ class Login extends Component {
               color="primary"
               className={classes.margin_form_btn}
             >
-              Primary
+              Login
             </Button>
           </form>
           <Alert ref="alert"/>
